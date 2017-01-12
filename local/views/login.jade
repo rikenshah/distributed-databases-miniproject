@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  nav.white(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='/') Wiki
+        ul.right.hide-on-med-and-down
+          li
+            a(href='/login') Login
+          li
+            a(href='/register') Register
+        ul#nav-mobile.side-nav
+          li
+            a(href='/login') Login
+          li
+            a(href='/register') Register
+        a.button-collapse(href='#', data-activates='nav-mobile')
+          i.material-icons menu
+  .log
+    .container
+          h1 Login Page
+          br
+          .row
+              form(role='form', action="/login",method="post", style='max-width: 300px;').col.s12
+                .row
+                  .input-field.col.s6
+                    input#username.validate(type='text', name="username")
+                    label(for='username') Username
+                .row
+                  .input-field.col.s12
+                    input#password.validate(type='password', name="password")
+                    label(for='password') Password
+                .row
+                  button.btn.waves-effect.waves-light(type='submit', name='action')
+                    | Login
+                  a(href='/')
+                    button.btn.waves-effect.waves-light(type="button") Cancel
+        
+  

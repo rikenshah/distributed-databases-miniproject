@@ -1,0 +1,43 @@
+<?xml version=”1.0″?>
+<!DOCTYPE wml PUBLIC “-//WAPFORUM//DTD WML 1.1//EN” “http://www.wapforum.org/DTD/wml_1.1.xml”&gt;
+<wml>
+ <card id=”card1″ title=”Calculator” newcontext=”true”>
+ <p>
+ Value1: <br/><input format=”N*M” name=”amount1″ title=”First Amount:”/>
+ Operator : <br/><select name=”operator” value=”ADD” title=”Operation:”>
+    <option value=”ADD”>Addition</option>
+  <option value=”SUB”>Subtraction</option>
+  <option value=”MULT”>Multiplication</option>
+  <option value=”DIV”>Division</option>
+ </select>
+ Value2: <br/><input format=”N*M” name=”amount2″ title=”Second Amount:”/>
+ Result : = <b>$(answer)</b>
+ <do type=”accept” label=”Result”>
+ <go href=”calc.wmls#operation(‘answer’,$(amount1),’$(operator)’,$(amount2))”/>
+ </do>
+ </p>
+ </card>
+</wml>
+Here, calc.wmls is the function file, means script which contains all the functions which is needed in calc.wml
+extern function operation(result,val1,operate,val2) {
+ var ans=0;
+ if (operate==’ADD’)
+ {
+ ans = val1 + val2;
+ }
+ else if (operate==’SUB’)
+ {
+ ans=val1 – val2;
+ }
+ else if (operate==’MULT’)
+ {
+ ans=val1 * val2;
+ }
+ else
+ {
+ ans=val1 / val2;
+ }
+ 
+ WMLBrowser.setVar(result,ans);
+ WMLBrowser.refresh();
+}

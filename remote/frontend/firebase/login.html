@@ -1,0 +1,38 @@
+<html>
+<head>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+</head>
+<body>
+
+<!-- CHAT MARKUP -->
+<div class="example-chat l-demo-container">
+  <header>Register</header>
+
+  <div class='example-chat-toolbar'>
+    <label for="nameInput">Email:</label>
+    <input type='email' id='emailInput' placeholder='enter your email'>
+  </div>
+
+  <footer>
+  Password
+    <input type='password' id='passwordInput'  placeholder='Password'>
+  </footer>
+</div>
+
+<!-- CHAT JAVACRIPT -->
+<script>
+      var ref = new Firebase("https://rikenauth.firebaseio.com");
+    ref.createUser({
+      email    : "rikenshah@mckds.ckm",
+      password : "correcthorsebatterystaple"
+    }, function(error, userData) {
+      if (error) {
+        console.log("Error creating user:", error);
+      } else {
+        console.log("Successfully created user account with uid:", userData.uid);
+      }
+    });
+</script>
+</body>
+</html>

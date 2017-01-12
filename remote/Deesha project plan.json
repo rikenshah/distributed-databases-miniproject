@@ -1,0 +1,64 @@
+//free my browser password Q6YcSx
+
+topics : {
+	"topic1" :{ 
+		//Example RayOptics
+		"subtopic1" : {
+			//example Intoduction
+			"Version1" : {
+				//easy - long but lucid
+			},
+			"Version2" : {
+				//medium - short but concise
+			},
+			"Version3" : {
+				//tough - short but concise
+			}
+		}
+	},
+	"topic2" :{
+		//...
+	},
+	"topic3" :{
+		//...
+	}
+}
+
+Questions : {
+	"topic1" : {
+		"subtopic1" : {
+			"question1" : {
+				"qtext" : "What is Ray RayOptics?",
+				"options" : {/*...*/},
+				"correctAns" : "Its a branch of physics"
+			},
+			"question2" : {
+				"qtext" : "What is Ray RayOptics?",
+				"options" : {/*...*/},
+				"correctAns" : "Its a branch of physics"
+			}
+			//more question of subtopic 1
+		},
+
+		"subtopic2" :{
+			//same as above
+		}
+	}
+}
+
+
+
+
+//deeshashah.herokuapp.com
+//deeshashah.herokuapp.com/topics
+	//gives json of topics
+	//store in a variable topic
+	//topic.topic1.v{{gp}}
+
+//deeshashah.herokuapp.com/questions
+	//gives json of questions
+	//store in a varible
+	//questions.question{{i}}.qtext
+	//next - computes result of previous text
+
+//based on result, update local varible - gp = 2

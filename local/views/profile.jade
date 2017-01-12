@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  nav.white(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='/') Wiki
+        if(!user)
+          ul.right.hide-on-med-and-down
+            li
+              a(href='/login') Login
+            li
+              a(href='/register') Register
+          ul#nav-mobile.side-nav
+            li
+              a(href='/login') Login
+            li
+              a(href='/register') Register
+          a.button-collapse(href='#', data-activates='nav-mobile')
+            i.material-icons menu
+        if(user)    
+          ul.right.hide-on-med-and-down
+            li
+              a(href="/profile") Welcome, #{user.username}
+            li
+              a(href="/logout") Logout
+            li
+              a(href="/dashboard") Search
+          ul#nav-mobile.side-nav
+            li
+              a(href='/profile') Welcome, #{user.username}
+            li
+              a(href='/logout') Logout
+            li
+              a(href="/dashboard") Search
+          a.button-collapse(href='#', data-activates='nav-mobile')
+            i.material-icons menu
+  .log
+      .container
+        .col-md-5.toppad.pull-right.col-md-offset-3
+          a.button.btn.waves-effect.waves-light(href='/editprofile') Edit Profile
+          br
+        .col-xs-12.col-sm-12.col-md-6.col-lg-6.col-xs-offset-0.col-sm-offset-0.col-md-offset-3.col-lg-offset-3.toppad
+          .panel.panel-info
+            .panel-heading
+              h3.panel-title  #{user.firstname} #{user.lastname}
+            .panel-body
+              .row
+                .col-md-9.col-lg-9
+                  table.table.table-user-information
+                    tbody
+                      tr
+                        td Username:
+                        td #{user.username}
+                      tr
+                        td Email ID:
+                        td #{user.email}
+                      tr
+                        td Search 1
+                        td 
+                          a(href='/content/#{user.search1}') #{user.search1}
+                      tr
+                        td Search 2
+                        td 
+                          a(href='/content/#{user.search2}') #{user.search2}
+                      tr
+                        td Search 3
+                        td 
+                          a(href='/content/#{user.search3}') #{user.search3}
+                      tr
+                        td Search 4
+                        td 
+                          a(href='/content/#{user.search4}') #{user.search4}
+                      tr
+                        td Search 5
+                        td 
+                          a(href='/content/#{user.search5}') #{user.search5}
+        

@@ -1,0 +1,49 @@
+extends layout
+
+block content  
+  nav.white(role='navigation')
+        .nav-wrapper.container
+          a#logo-container.brand-logo(href='/') Wiki
+          if(!user)
+            ul.right.hide-on-med-and-down
+              li
+                a(href='/login') Login
+              li
+                a(href='/register') Register
+            ul#nav-mobile.side-nav
+              li
+                a(href='/login') Login
+              li
+                a(href='/register') Register
+            a.button-collapse(href='#', data-activates='nav-mobile')
+              i.material-icons menu
+          if(user)    
+            ul.right.hide-on-med-and-down
+              li
+                a(href="/profile") Welcome, #{user.username}
+              li
+                a(href="/logout") Logout
+            ul#nav-mobile.side-nav
+              li
+                a(href='/profile') Welcome, #{user.username}
+              li
+                a(href='/logout') Logout
+            a.button-collapse(href='#', data-activates='nav-mobile')
+              i.material-icons menu
+  #index-banner.parallax-container
+        .section.no-pad-bot
+        .container
+          .row
+            .col.s12
+              .card.blue-grey.darken-1
+                .card-content.white-text
+                  style.
+                    ul li { line-height : 1.5}
+                  span.card-title !{topicname}
+                  !{text}
+                  hr
+                  p Time Taken: #{time} milliseconds
+            a.button.btn.waves-effect.waves-light(href='/dashboard', align='center') Search Again
+
+                
+        

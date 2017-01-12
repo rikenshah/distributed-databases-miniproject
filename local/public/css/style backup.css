@@ -1,0 +1,65 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+body {
+  background-image: url("/images/myImage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 50px;
+  
+}
+main {
+    flex: 1 0 auto;
+}
+input, select, textarea{
+    color: #ffffff; 
+}
+h1{
+  color:#ffffff;
+  font-family: "Roboto";
+}
+a{
+  text-decoration: none;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: #ffffff;
+}
+.box{
+  margin: 100px auto;
+  width: 300px;
+  height: 50px;
+}
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  font-size: 10pt;
+  float: left;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #ffffff;
+}

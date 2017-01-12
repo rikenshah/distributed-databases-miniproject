@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1.
+        History List
+    ul
+        each topic, i in topiclist
+            li
+                a(href="www.google.com")= topic.topicname
+                a(href="www.google.com")= topic.content
+                

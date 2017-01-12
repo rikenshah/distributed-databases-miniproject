@@ -1,0 +1,206 @@
+var express = require('express');
+var passport = require('passport');
+var Account = require('../models/account');
+var summary = require("./../scripts/summary.js");
+var router = express.Router();
+var bcrypt = require('bcryptjs');
+var http = require('http');
+
+router.get('/', function(req, res, next) {
+    res.render('index', {
+        user: req.session.user
+    });
+});
+
+router.get('/login', function(req, res) {
+    res.render('login', {
+        user: req.user
+    });
+});
+
+router.post('/login', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+
+    Account.findOne({
+        username: username
+    }, function(err, user) {
+        if (err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        if (!user) {
+            return res.status(404).send();
+        }
+        user.comparePassword(password, function(err, isMatch) {
+            if (isMatch && isMatch == true) {
+                //res.redirect('/'); 
+                req.session.user = user;
+                //return res.status(200).send();
+                res.redirect('/dashboard');
+            } else {
+                return res.redirect('/login');
+            }
+        });
+
+    })
+});
+
+router.get('/logout', function(req, res) {
+    req.session.destroy();
+    res.redirect('/');
+});
+
+router.get('/register', function(req, res) {
+    res.render('register', {});
+});
+
+router.post('/content', function(req, res) {
+    var topic = req.body.inputText;
+    console.log("topic :"+topic);
+    var somedata = "";
+    //getting data end
+    var options = {
+        host: 'rikenrocks.herokuapp.com',
+        port: 80,
+        path: '/wiki/'+topic+''
+    };
+
+    http.get(options, function(webresponse) {
+        console.log("Got response: " + webresponse.statusCode);
+
+        webresponse.on('data', function(chunk) {
+            // console.log("SSuuupp: " + chunk); //main data is obtained here, do not remove "data :"
+            somedata += chunk;
+            //rendering html eith params
+            // var newData = JSON.parse(data);
+            // console.log(newData);
+            // for (i = 1; i <= newData.length; i++) {
+            //     newData[i - 1]['index'] = i;
+            // }
+            // console.log("kjsdnkndsckjsdkjs_______" + JSON.stringify(newData));
+            
+        });
+
+        webresponse.on('end', function(){
+            var wikitext = JSON.parse(somedata);
+            console.log("Got content _____________----: ", wikitext[0]['content']);
+            res.send(wikitext[0]['content'])
+        });
+
+    }).on('error', function(e) {
+        console.log("Got error: " + e.message);
+    });
+    //getting data end
+});
+
+router.get('/dashboard', function(req, res) {
+
+    //for updating db, updating search1 to hi and it WAS successful! woho
+    var p = Account.findOne({
+        'username': req.session.user.username
+    })
+    Account.update(p, {
+        '$set': {
+            'search1': "hello"
+        }
+    }, function(err) {
+        if (err) {
+            console.log(err);
+            return res.status(202).send();
+        }
+        //return res.status(205).send();
+    })
+    res.render('dashboard', {
+        user: req.session.user
+    });
+
+    return res.status(900).send();
+
+});
+
+router.get('/profile', function(req, res) {
+    res.render('profile', {
+        user: req.session.user
+    });
+});
+
+router.get('/editprofile', function(req, res) {
+    res.render('profileedit', {
+        user: req.session.user
+    });
+});
+
+router.post('/editprofile', function(req, res) {
+    var p = Account.findOne({
+        'username': req.session.user.username
+    })
+    var email = req.body.email;
+    var password = req.body.password;
+    bcrypt.genSalt(10, function(err, salt) {
+        if (err) return next(err);
+
+        // hash the password using our new salt
+        bcrypt.hash(password, salt, function(err, hash) {
+            if (err) return next(err);
+
+            // override the cleartext password with the hashed one
+            password = hash;
+            Account.update(p, {
+                '$set': {
+                    'password': password
+                }
+            }, function(err) {
+                if (err) {
+                    console.log(err);
+                    return res.status(202).send();
+                }
+                //return res.status(205).send();
+            })
+        })
+    })
+
+    res.redirect('/');
+});
+
+router.post('/dashboard', function(req, res) {
+
+})
+
+router.post('/register', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
+    var email = req.body.email;
+    var search1 = "";
+    var search2 = "";
+    var search3 = "";
+    var search4 = "";
+    var search5 = "";
+
+    var newuser = new Account();
+    newuser.username = username;
+    newuser.password = password;
+    newuser.firstname = firstname;
+    newuser.lastname = lastname;
+    newuser.email = email;
+    newuser.search1 = search1;
+    newuser.search2 = search2;
+    newuser.search3 = search3;
+    newuser.search4 = search4;
+    newuser.search5 = search5;
+    newuser.save(function(err, savedUser) {
+        if (err) {
+            console.log(err);
+            return res.status(500).send();
+        }
+        res.redirect('/');
+        return res.status(200).send();
+    })
+
+});
+
+
+
+module.exports = router;
