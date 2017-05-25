@@ -24,16 +24,19 @@ Express used Jade as a templating engine. Jade gives you a powerful new way to w
 1. Install Nodejs, mongoDB on your machine.
 2. In the repository you will find 2 folders : Local and Remote. Traverse to the local folder. You will find a file "package.js". This file contains all the node modules that need to be installed before running the application locally. In order to install this modules run the following command in the shell within the local folder :
 
- $ npm install 
- This command installs all the dependencies mentioned in the "package.js" in a folder called "node_modules"
+   $ npm install <br>
+   This command installs all the dependencies mentioned in the "package.js" in a folder called "node_modules"
  
  In order to install any single package and to include that package inside of the dependencies section of your package.json  automatically run the following command 
  
- $ npm install _package-name_ --save
+ $ npm install _package-name_ --save <br>
  
  3. The application uses mongoDB, so you need to first start the MongoDB server in another shell. The data of the application is stored in the folder named "data"
  
  $ sudo mongod --dbpath _path to the data folder_
+ 
+ 4. Now to run the application on the local server, port 3000, add the following code in app.js 
+ 
 
 
  
