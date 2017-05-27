@@ -3,19 +3,19 @@
 In this project, a search engine, particularly for Wikipedia has been implemented. User needs to enter the term in the search box for which he requires information from Wikipedia. Another feature of this application is, the user search history is also displayed. 
 
 #### Technologies used : 
-1. Nodejs : <br>
+1. _Nodejs_ : <br>
 Nodejs is a server side scripting language for Javascript. 
 
-2. Mongo DB : <br>
+2. _Mongo DB_ : <br>
 Mongo DB is a No SQL database. MongoDB uses JSON-like documents with schemas. 
 
-3. Express : <br>
+3. _Express_ : <br>
 We have designed this application using Express which is a web framework for Node js. It provides wide range of features for web development using Nodejs
 
-4. Wikipedia JS : <br>
+4. _Wikipedia JS_ : <br>
 Wikipedia.JS is a small Javascript library for accessing information in Wikipedia articles such as dates, places, abstracts and more. 
 
-5. Jade : <br>
+5. _Jade_ : <br>
 Express used Jade as a templating engine. Jade gives you a powerful new way to write markup, with a number of advantages over plain HTML.
 
 
@@ -43,7 +43,7 @@ Express used Jade as a templating engine. Jade gives you a powerful new way to w
       app.listen(3000, function () {
          console.log('Example app listening on port 3000!')
       })
-   ```
+    ```
  5. To start the application run the following command in the terminal: 
     ```
     node app.js
