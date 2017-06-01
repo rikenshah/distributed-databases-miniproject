@@ -2,6 +2,8 @@
 
 In this project, a search engine, particularly for Wikipedia has been implemented. User needs to enter the term in the search box for which he requires information from Wikipedia. Another feature of this application is, the user search history is also displayed. 
 
+The project has been hosted here : [Search Wiki](http://searchwiki.herokuapp.com/)
+
 #### Technologies used : 
 1. _Nodejs_ : <br>
 Nodejs is a server side scripting language for Javascript. 
@@ -18,6 +20,8 @@ Wikipedia.JS is a small Javascript library for accessing information in Wikipedi
 5. _Jade_ : <br>
 Express used Jade as a templating engine. Jade gives you a powerful new way to write markup, with a number of advantages over plain HTML.
 
+6. _Material_ : <br>
+A Responsive front-end framework based on Material design.
 
 #### Steps in setting up the project locally:
 
@@ -51,9 +55,19 @@ Express used Jade as a templating engine. Jade gives you a powerful new way to w
     This starts the application locally at localhost:3000
  
 
+#### Working of the project.
 
- 
- 
- 
- 
+1. The home page : <br>
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/1.png)</kbd>
 
+2. The Login panel : <br> 
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/2.png)</kbd>
+
+3. The Registrations panel : <br>
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/3.png)</kbd>
+
+4. The search Box : <br>
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/4.png)</kbd>
+
+5. User search History : <br>
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/5.png)</kbd>
