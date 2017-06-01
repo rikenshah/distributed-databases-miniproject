@@ -79,5 +79,5 @@ A Responsive front-end framework based on Material design.
 <kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/6.png)</kbd>
 
 #### Contributors 
-[Riken Shah](https://github.com/rikenshah/)
+[Riken Shah](https://github.com/rikenshah/) <br>
 [Deesha Shah](https://github.com/deeshashah/)
