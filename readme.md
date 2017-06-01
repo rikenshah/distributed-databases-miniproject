@@ -72,5 +72,12 @@ A Responsive front-end framework based on Material design.
 4. The search Box : <br>
 <kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/4.png)</kbd>
 
-5. User search History : <br>
+5. Search results : <br>
 <kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/5.png)</kbd>
+
+6. User search History : <br>
+<kbd>![normal](https://raw.githubusercontent.com/rikenshah/distributed-databases-miniproject/master/ddb_screenshots/6.png)</kbd>
+
+#### Contributors 
+[Riken Shah](https://github.com/rikenshah/)
+[Deesha Shah](https://github.com/deeshashah/)
